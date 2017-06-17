@@ -7,10 +7,11 @@ angular.module('alurapic').controller('FotosController', function($scope , $http
    })
    .error(function(erro){
       console.log(erro);
-   })
-   promise.then(function(retorno){
-     $scope.fotos = retorno.data;
-  }).catch(function(error){
-    console.log(error);
- });
+   });
+
+ //   promise.then(function(retorno){
+ //     $scope.fotos = retorno.data;
+ //  }).catch(function(error){
+ //    console.log(error);
+ // });
 });
