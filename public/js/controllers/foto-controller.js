@@ -2,14 +2,15 @@ angular.module('alurapic').controller('FotoController', function($scope , $http)
    $scope.foto = {};
 
    $scope.submeter = function(){
-      console.log($scope.foto);
+      if($scope.formulario.$valid){
+         $http.post('v1/fotos' , $scope.foto)
+         .success(function(){
+            $scope.foto = {};
+            console.log('Foto inserida com sucesso');
+         })
+         .error(function(erro){
+            console.log(erro);
+         });
+      }
    };
-
-   $http.put('v1/fotos')
-   .success(function(fotos){
-      $scope.fotos = fotos;
-   })
-   .error(function(erro){
-      console.log(erro);
-   });
 });
